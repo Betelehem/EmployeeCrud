@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>List of Employee</title>
+</head>
+<body>
+<div class="container">
+    <table class="table table-bordered table-striped">
+        <thead class="thead-dark">
+        <tr>
+            <td>EmployeeId</td>
+            <td>EmployeeFName</td>
+            <td>EmployeeLName</td>
+            <td>Email</td>
+            <td>Action</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="employee:${employees}">
+
+
+            <td th:text="${employee.id}"></td>
+            <td th:text="${employee.firstname}"></td>
+            <td th:text="${employee.lastname}"></td>
+            <td th:text="${employee.email}"></td>
+            <td> <a th:href="@{/update(empId=${employee.id})}">Update</a> </td>
+
+        </tr>
+        </tbody>
+    </table>
+
+</div>
+</body>
+</html>

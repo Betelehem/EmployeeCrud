@@ -1,0 +1,3 @@
+INSERT INTO POSITION(Id,name) VALUES (1,'Manager');
+INSERT INTO POSITION(Id,name) VALUES (2,'Admin');
+INSERT INTO POSITION(Id,name) VALUES (3,'Employee');

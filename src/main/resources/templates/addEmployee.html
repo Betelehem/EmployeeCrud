@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Employee Form</title>
+</head>
+<body>
+<form th:action="@{/addEmployee}" th:object="${employee}" method="post">
+
+    <select th:field="*{position}" class="form-control mb-4 col-4">
+        <option th:each="pos: ${positions}" th:text="${pos.name}" th:value="${pos.id}"></option>
+    </select>
+
+    <input type="hidden" th:field="*{id}">
+    <input type="hidden" th:field="*{address.id}">
+    <input type="text" th:field="*{firstname}" class="form-control mb-4 col-4" placeholder="first name">
+
+    <input type="text" th:field="*{lastname}" class="form-control mb-4 col-4" placeholder="last name">
+
+    <input type="text" th:field="*{email}" class="form-control mb-4 col-4" placeholder="email">
+
+    <input type="text" th:field="*{address.street}" class="form-control mb-4 col-4" placeholder="Street">
+    <input type="text" th:field="*{address.city}" class="form-control mb-4 col-4" placeholder="City">
+    <input type="text" th:field="*{address.state}" class="form-control mb-4 col-4" placeholder="State">
+    <input type="text" th:field="*{address.zipcode}" class="form-control mb-4 col-4" placeholder="ZipCode">
+
+
+    <input type="submit" value="save" class="btn btn-info col-2">
+     <a href="/listofEmployee">ListOfEmp</a>
+
+</form>
+
+</body>
+</html>
