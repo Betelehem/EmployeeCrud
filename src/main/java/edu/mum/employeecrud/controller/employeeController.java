@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
@@ -40,13 +41,18 @@ public class employeeController {
     }
 
 
-    @GetMapping("/update")
-    public String updateEmp(@ModelAttribute("empId")Long empId, Model model){
+    @GetMapping("/update/{id}")
+    public String updateEmp(@PathVariable("id")Long empId, Model model){
         Employee employee = employeeService.findById(empId);
         model.addAttribute("employee", employee);
         model.addAttribute("positions",positionService.findAll());
        // model.addAttribute("address",addressService.findAll());
         return "addEmployee";
+    }
+    @GetMapping("/delete/{id}")
+    public String deleteEmp(@PathVariable("id")Long empId){
+        employeeService.deleteById(empId);
+        return "redirect:/listofEmployee";
     }
 
 
