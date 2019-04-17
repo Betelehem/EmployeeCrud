@@ -10,9 +10,9 @@
     <select th:field="*{position}" class="form-control mb-4 col-4">
         <option th:each="pos: ${positions}" th:text="${pos.name}" th:value="${pos.id}"></option>
     </select>
-
     <input type="hidden" th:field="*{id}">
     <input type="hidden" th:field="*{address.id}">
+    <p th:if="${#fields.hasErrors('firstname')}" th:errors="*{firstname}" th:errorclass="fieldError"></p>
     <input type="text" th:field="*{firstname}" class="form-control mb-4 col-4" placeholder="first name">
 
     <input type="text" th:field="*{lastname}" class="form-control mb-4 col-4" placeholder="last name">

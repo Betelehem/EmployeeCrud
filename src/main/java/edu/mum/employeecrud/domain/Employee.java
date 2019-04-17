@@ -4,6 +4,8 @@ import org.springframework.stereotype.Controller;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 @Entity
 public class Employee {
@@ -11,6 +13,7 @@ public class Employee {
     @GeneratedValue(strategy = GenerationType.AUTO )
     @Column(name="employee_id")
     Long id;
+    @NotEmpty(message = "First Name is required")
     @Column(name="first_name")
     String firstname;
     @Column(name="last_name")
